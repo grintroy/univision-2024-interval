@@ -44,10 +44,11 @@ video {
 .c-2 {
   left: 41%;
   transform-origin: top left;
-  transform: scale(0.38) translateY(-100px);
+  transform: scale(0.38) translateY(-120px);
 }
 
 .c-3 {
   right: 22%;
   transform-origin: top right;
+  transform: scale(0.4) translateY(30px);
 }
