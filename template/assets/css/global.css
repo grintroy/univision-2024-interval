@@ -25,7 +25,7 @@ body {
 
 .n-video {
   position: absolute;
-  top: 50%;
+  top: 47.5%;
 }
 
 video {
@@ -42,13 +42,13 @@ video {
 }
 
 .c-2 {
-  left: 40%;
+  left: 41%;
   transform-origin: top left;
   transform: scale(0.38) translateY(-60px);
 }
 
 .c-3 {
-  right: 22%;
+  right: 21%;
   transform-origin: top right;
   transform: scale(0.4) translateY(30px);
 }
