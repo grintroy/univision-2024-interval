@@ -1,4 +1,5 @@
 let currentScores = { 1: null, 2: null, 3: null };
+const DELAY = 200;
 
 webcg.on("data", (data) => {
 	if (data.team1 && data.team2 && data.team3) {
@@ -8,7 +9,9 @@ webcg.on("data", (data) => {
 
 webcg.on("play", async () => {});
 
-webcg.on("stop", () => {});
+webcg.on("stop", async () => {
+	await pullAll();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
 	const videos = document.querySelector("#n-videos-collection");
@@ -43,6 +46,7 @@ function pushVideo(n, c) {
 }
 
 function pullVideo(n, c) {
+	console.log(n, c);
 	const inVideo = document.querySelector(`#video-intro-n${n}-c${c}`);
 	const outVideo = document.querySelector(`#video-outro-n${n}-c${c}`);
 
@@ -70,7 +74,15 @@ async function updateScores(scores) {
 	for (let i = 1; i <= scores.length; i++) {
 		const score = parseInt(scores[i - 1]);
 		await updateScore(i, score);
-		await sleep(200);
+		await sleep(DELAY);
+	}
+}
+
+async function pullAll() {
+	console.log("pulling all");
+	for (let i = 1; i <= Object.keys(currentScores).length; i++) {
+		pullVideo(currentScores[i], i);
+		await sleep(DELAY);
 	}
 }
 

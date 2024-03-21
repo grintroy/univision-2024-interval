@@ -37,17 +37,17 @@ video {
 }
 
 .c-1 {
-  left: 20%;
+  left: 19%;
   transform-origin: top left;
 }
 
 .c-2 {
-  left: 42.5%;
+  left: 41.5%;
   transform-origin: top left;
   transform: scale(0.38) translateY(-100px);
 }
 
 .c-3 {
-  right: 20%;
+  right: 21%;
   transform-origin: top right;
 }
