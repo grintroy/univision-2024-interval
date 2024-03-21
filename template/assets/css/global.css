@@ -1,0 +1,53 @@
+.webcg-devtools div {
+  z-index: 1000 !important;
+}
+
+html {
+  background-color: transparent;
+  overflow: hidden;
+  font-family: proxima-nova, sans-serif;
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  margin: 0;
+}
+
+.overlay {
+  opacity: 1;
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s;
+}
+
+.n-video {
+  position: absolute;
+  top: 50%;
+}
+
+video {
+  width: 756px;
+  height: 1024px;
+  object-fit: fill;
+  transform: scale(0.4);
+  opacity: 0;
+}
+
+.c-1 {
+  left: 20%;
+  transform-origin: top left;
+}
+
+.c-2 {
+  left: 42.5%;
+  transform-origin: top left;
+  transform: scale(0.38) translateY(-100px);
+}
+
+.c-3 {
+  right: 20%;
+  transform-origin: top right;
+}
