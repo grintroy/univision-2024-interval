@@ -2,6 +2,10 @@ let currentScores = { 1: null, 2: null, 3: null };
 const DELAY = 200;
 
 webcg.on("data", (data) => {
+	if (!data.team1 && !data.team2 && !data.team3) {
+		updateScores([0, 0, 0]);
+	}
+
 	if (data.team1 && data.team2 && data.team3) {
 		updateScores([data.team1, data.team2, data.team3]);
 	}
