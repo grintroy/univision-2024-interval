@@ -10,6 +10,8 @@ def index(request):
 def scores(request):
     if request.method == "GET":
         host = request.GET.get("host")
+    if not host:
+        host = request.get_host()
     return render(
         request,
         "scores.html",

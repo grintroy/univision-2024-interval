@@ -50,10 +50,13 @@ document.getElementById("form-connect").addEventListener("submit", (e) => {
 
 	socket.onopen = (e) => {
 		const button = document.getElementById("form-connect-button");
-		button.classList.remove("btn-primary");
-		button.classList.add("btn-success");
+		button.classList.remove("btn-success");
+		button.classList.add("btn-danger");
 		button.textContent = "Connected";
-		button.disabled = true;
+		button.onclick = () => {
+			socket.close();
+		};
+
 		const input = document.getElementById("form-connect-input");
 		input.disabled = true;
 
@@ -67,10 +70,9 @@ document.getElementById("form-connect").addEventListener("submit", (e) => {
 
 	socket.onclose = (e) => {
 		const button = document.getElementById("form-connect-button");
-		button.classList.remove("btn-success");
-		button.classList.add("btn-primary");
+		button.classList.remove("btn-danger");
+		button.classList.add("btn-success");
 		button.textContent = "Connect";
-		button.disabled = false;
 		const input = document.getElementById("form-connect-input");
 		input.disabled = false;
 
