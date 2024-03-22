@@ -6,7 +6,17 @@
 <div class="container">
 	<h2>Score control</h2>
 	<hr>
-	<div class="row my-3">
+	<div class="row">
+		<form id="form-connect">
+		</form>
+		<div class="col-8 col-lg-4 p-1 ps-3">
+			<input id="form-connect-input" form="form-connect" class="form-control" name="host" value="{% if host %}{{ host }}{% endif %}">
+		</div>
+		<div class="col-4 col-lg-2 d-grid gap-0 p-1">
+			<button id="form-connect-button" form="form-connect" type="submit" class="btn btn-primary p-0">Connect</button>
+		</div>
+	</div>
+	<div class="row my-3" id="controls">
 		{% for t in teams %}
 		<div class="col-12 col-md-6 col-lg-4 my-3" data-team="{{ t.color }}">
 			<h4>{{ t.color }}: <span id="score-{{ t.color }}">{{ t.score.score }}</span></h4>
@@ -63,11 +73,11 @@
 	</div>
 
 	<hr>
-	<div class="col-sm-6 col-md-3 col-lg-2 d-grid my-3">
-		<button type="button" class="btn btn-danger" onclick="reset_all_scores()">Reset all scores</button>
+	<div class="col-sm-6 col-lg-3 col-xxl-2 d-grid my-3">
+		<button type="button" class="btn btn-danger" onclick="reset_all_scores()">Reset scores</button>
 	</div>
-	<div class="col-sm-6 col-md-3 col-lg-2 d-grid my-3">
-		<button type="button" class="btn btn-danger" onclick="reset_all_transformations()">Reset all transformations</button>
+	<div class="col-sm-6 col-lg-3 col-xxl-2 d-grid my-3">
+		<button type="button" class="btn btn-danger" onclick="reset_all_transformations()">Reset transformations</button>
 	</div>
 </div>
 
