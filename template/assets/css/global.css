@@ -74,30 +74,32 @@ video {
   text-align: center;
   line-height: 1080px;
   letter-spacing: 4px;
-  font-weight: bold;
-  font-family: futura-pt-condensed, sans-serif;
+  font-weight: medium;
+  font-family: futura-pt-condensed;
   text-transform: uppercase;
 }
 
-#bigtitle.init {
+.title.init {
   opacity: 0;
-  transform: scale(3);
+  transform: scale(0);
 }
 
-#bigtitle.in {
-  opacity: 1;
-  transition: opacity 0.7s cubic-bezier(0.5, 1, 0.89, 1),
+.title.in {
+  opacity: 0.1;
+  transition: opacity 0.7s,
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   transform: scale(1);
 }
 
-#bigtitle.out {
+.title.out {
   opacity: 0;
   transition: opacity 0.7s cubic-bezier(0.11, 0, 0.5, 0),
     transform 0.7s cubic-bezier(0.7, 0, 0.84, 0);
-  transform: scale(0);
+  transform: scale(3);
 }
 
-#bigtitle p {
+.title {
   margin: 0;
+  width: 100%;
+  position: absolute;
 }
