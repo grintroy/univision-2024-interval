@@ -16,68 +16,70 @@
 			<button id="form-connect-button" form="form-connect" type="submit" class="btn btn-primary p-0">Connect</button>
 		</div>
 	</div>
-	<div class="row my-3" id="controls">
-		{% for t in teams %}
-		<div class="col-12 col-md-6 col-lg-4 my-3" data-team="{{ t.color }}">
-			<h4>{{ t.color }}: <span id="score-{{ t.color }}">{{ t.score.score }}</span></h4>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-4 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-secondary" onclick="add_points('{{ t.color }}', -1)">-1</button>
-					</div>
-					<div class="col-4 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-secondary" onclick="add_points('{{ t.color }}', 1)">+1</button>
-					</div>
-					<div class="col-4 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-danger" onclick="reset_scores('{{ t.color }}')">Reset</button>
-					</div>
+	<div id="controls">
+		<div class="row my-3">
+			{% for t in teams %}
+			<div class="col-12 col-md-6 col-lg-4 my-3" data-team="{{ t.color }}">
+				<h4>{{ t.color }}: <span id="score-{{ t.color }}">{{ t.score.score }}</span></h4>
+				<div class="container text-center">
+					<div class="row">
+						<div class="col-4 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-secondary" onclick="add_points('{{ t.color }}', -1)">-1</button>
+						</div>
+						<div class="col-4 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-secondary" onclick="add_points('{{ t.color }}', 1)">+1</button>
+						</div>
+						<div class="col-4 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-danger" onclick="reset_scores('{{ t.color }}')">Reset</button>
+						</div>
 
-					<form class="form-points" id="form-points-{{ t.color }}">
-						<input type="hidden" name="color" value="{{ t.color }}">
-					</form>
-					<div class="col-8 p-1">
-						<input form="form-points-{{ t.color }}" type="number" min="0" step="1" value="0" class="form-control" name="points">
-					</div>
-					<div class="col-4 d-grid gap-0 p-1">
-						<button form="form-points-{{ t.color }}" type="submit" class="btn btn-success p-0">Set points</button>
-					</div>
+						<form class="form-points" id="form-points-{{ t.color }}">
+							<input type="hidden" name="color" value="{{ t.color }}">
+						</form>
+						<div class="col-8 p-1">
+							<input form="form-points-{{ t.color }}" type="number" min="0" step="1" value="0" class="form-control" name="points">
+						</div>
+						<div class="col-4 d-grid gap-0 p-1">
+							<button form="form-points-{{ t.color }}" type="submit" class="btn btn-success p-0">Set points</button>
+						</div>
 
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'rotate', 'cc')">↺</button>
-					</div>
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'up')">↑</button>
-					</div>
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'rotate', 'c')">↻</button>
-					</div>
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'scale', 'up')">+</button>
-					</div>
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'left')">←</button>
-					</div>
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'down')">↓</button>
-					</div>
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'right')">→</button>
-					</div>
-					<div class="col-3 d-grid gap-0 p-1">
-						<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'scale', 'down')">-</button>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'rotate', 'cc')">↺</button>
+						</div>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'up')">↑</button>
+						</div>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'rotate', 'c')">↻</button>
+						</div>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'scale', 'up')">+</button>
+						</div>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'left')">←</button>
+						</div>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'down')">↓</button>
+						</div>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'translate', 'right')">→</button>
+						</div>
+						<div class="col-3 d-grid gap-0 p-1">
+							<button type="button" class="btn btn-outline-secondary" onclick="transform('{{ t.color }}', 'scale', 'down')">-</button>
+						</div>
 					</div>
 				</div>
 			</div>
+			{% endfor %}
 		</div>
-		{% endfor %}
-	</div>
 
-	<hr>
-	<div class="col-sm-6 col-lg-3 col-xxl-2 d-grid my-3">
-		<button type="button" class="btn btn-danger" onclick="reset_all_scores()">Reset scores</button>
-	</div>
-	<div class="col-sm-6 col-lg-3 col-xxl-2 d-grid my-3">
-		<button type="button" class="btn btn-danger" onclick="reset_all_transformations()">Reset transformations</button>
+		<hr>
+		<div class="col-sm-6 col-lg-3 col-xxl-2 d-grid my-3">
+			<button type="button" class="btn btn-danger" onclick="reset_all_scores()">Reset scores</button>
+		</div>
+		<div class="col-sm-6 col-lg-3 col-xxl-2 d-grid my-3">
+			<button type="button" class="btn btn-danger" onclick="reset_all_transformations()">Reset transformations</button>
+		</div>
 	</div>
 </div>
 

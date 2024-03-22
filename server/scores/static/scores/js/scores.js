@@ -66,6 +66,19 @@ document.getElementById("form-connect").addEventListener("submit", (e) => {
 	};
 
 	socket.onclose = (e) => {
+		const button = document.getElementById("form-connect-button");
+		button.classList.remove("btn-success");
+		button.classList.add("btn-primary");
+		button.textContent = "Connect";
+		button.disabled = false;
+		const input = document.getElementById("form-connect-input");
+		input.disabled = false;
+
+		const container = document.getElementById("controls");
+		container.querySelectorAll("input, button").forEach((input) => {
+			input.disabled = true;
+		});
+
 		console.log("Chat socket closed unexpectedly");
 	};
 
