@@ -9,5 +9,10 @@ def index(request):
 
 def scores(request):
     return render(
-        request, "scores.html", {"teams": Team.objects.all().order_by("color")}
+        request,
+        "scores.html",
+        {
+            "title": "Scores",
+            "teams": Team.objects.all().order_by("index"),
+        },
     )

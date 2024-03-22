@@ -8,7 +8,9 @@ class Position(models.Model):
     dy_px = models.FloatField(default=0)
     rotate_deg = models.FloatField(default=0)
     scale = models.FloatField(default=1)
-    score = models.OneToOneField("Score", on_delete=models.CASCADE, editable=False)
+    score = models.OneToOneField(
+        "Score", on_delete=models.CASCADE, editable=False, related_name="position"
+    )
 
     def __str__(self):
         return f"{self.score.team}: dx={self.dx_px}, dy={self.dy_px}, {self.rotate_deg} deg, x{self.scale}"
@@ -16,7 +18,9 @@ class Position(models.Model):
 
 class Score(models.Model):
     score = models.IntegerField(default=0)
-    team = models.OneToOneField("Team", on_delete=models.CASCADE, editable=False)
+    team = models.OneToOneField(
+        "Team", on_delete=models.CASCADE, editable=False, related_name="score"
+    )
 
     def __str__(self):
         return self.team.color + ": " + str(self.score)
@@ -30,6 +34,7 @@ def create_position(sender, instance, created, **kwargs):
 
 class Team(models.Model):
     color = models.CharField(max_length=20)
+    index = models.IntegerField(default=0)
 
     def __str__(self):
         return self.color
