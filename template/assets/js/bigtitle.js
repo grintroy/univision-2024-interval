@@ -1,4 +1,4 @@
-const MOTION_BLUR_DELAY = 4; // ms
+const MOTION_BLUR_DELAY = 10; // ms
 
 webcg.on("data", (data) => {
 	const title = document.querySelectorAll(".title");
