@@ -1,4 +1,4 @@
-const MOTION_BLUR_DELAY = 5; // ms
+const MOTION_BLUR_DELAY = 3; // ms
 
 webcg.on("data", (data) => {
 	const title = document.querySelectorAll(".title");
@@ -8,6 +8,10 @@ webcg.on("data", (data) => {
 });
 
 webcg.on("play", () => {
+	const title_container = document.querySelector("#bigtitle");
+	title_container.classList.add("in");
+	title_container.classList.remove("init", "out");
+
 	const title = document.querySelectorAll(".title");
 	let delay = 0;
 	title.forEach((element) => {
@@ -20,6 +24,14 @@ webcg.on("play", () => {
 });
 
 webcg.on("stop", () => {
+	const title_container = document.querySelector("#bigtitle");
+	title_container.classList.add("out");
+	title_container.classList.remove("in");
+	setTimeout(() => {
+		title_container.classList.add("init");
+		title_container.classList.remove("out");
+	}, 1200);
+
 	const title = document.querySelectorAll(".title");
 	let delay = 0;
 	title.forEach((element) => {
